@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import "../styles/RandomStat.css"
 
-const RandomStat = ({randomStat, stats,setRandomStat}) => {
+const RandomStat = ({randomStat, stats, setRandomStat, saveStat}) => {
     return (
         <div className="random-stat">
             <button onClick={() => setRandomStat(stats[Math.floor(Math.random()*stats.length)])}>get new random statline</button>
@@ -19,7 +19,7 @@ const RandomStat = ({randomStat, stats,setRandomStat}) => {
                     <p className="stat">{randomStat.assists}</p>
                 </div>
             </div>
-            <button>save this statline</button>
+            <button onClick = {saveStat}>save this statline</button>
             <Link to="/saved">
                 <button>show saved</button>
             </Link>
@@ -30,8 +30,8 @@ const RandomStat = ({randomStat, stats,setRandomStat}) => {
 export default RandomStat
 
 RandomStat.propTypes = {
-    date: PropTypes.string.isRequired,
-    points: PropTypes.number.isRequired,
-    assists: PropTypes.number.isRequired,
-    rebounds: PropTypes.number.isRequired,
+    randomStat: PropTypes.object.isRequired,
+    stats: PropTypes.array.isRequired,
+    setRandomStat: PropTypes.func.isRequired,
+    saveStat: PropTypes.func.isRequired,
 }

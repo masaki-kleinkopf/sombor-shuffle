@@ -3,19 +3,23 @@ import '../styles/App.css';
 import { useEffect, useState } from "react"
 import getData from "../apiCalls"
 import RandomStat from "./RandomStat"
+import { mapData } from "../utils"
+import PropTypes from "prop-types"
 
 function App() {
   const  [stats, setStats]  = useState([])
   const [randomStat, setRandomStat] = useState([])
 
   useEffect(() => {
-    const getStats =  () => {
+    const getStats = () => {
       Promise.all([
       getData("https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=246&per_page=82"),
       getData("https://www.balldontlie.io/api/v1/stats?seasons[]=2021&player_ids[]=246&per_page=82")
     ])
       .then((data) => {
-      setStats([...data[0].data,...data[0].data])
+        const data2020 = mapData(data[0].data)
+        const data2021 = mapData(data[1].data)
+      setStats([...data2020,...data2021])
     })
   }
     getStats();

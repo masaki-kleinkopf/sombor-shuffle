@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import getData from "../apiCalls"
 import RandomStat from "./RandomStat"
 import { mapData } from "../utils"
-import PropTypes from "prop-types"
 
 function App() {
   const  [stats, setStats]  = useState([])
@@ -26,22 +25,20 @@ function App() {
   },[])
 
   useEffect(() => {
-    getRandom()
-  },[stats])
-
-  const getRandom = () => {
     setRandomStat(stats[Math.floor(Math.random()*stats.length)])
-  }
-
-
+  },[stats])
 
 
   return (
     <main>
-      <header>sombor shuffle</header>
-      <h1>get a random triple slash from Nikola Jokic's MVP seasons</h1>
-      <h4>points / rebounds / assists</h4>
-      {randomStat && <RandomStat randomStat = {randomStat} getRandom ={getRandom} />}
+      <header>
+        sombor <span className="shuffle">shuffle</span>
+        <h1>get a random statline from Nikola Jokic's MVP seasons</h1>
+        <h4>points / rebounds / assists</h4>
+      </header>
+      
+        
+      {randomStat ? <RandomStat stats={stats}randomStat = {randomStat} setRandomStat ={setRandomStat} /> : <p>loading</p>}
     </main>
   )
 }

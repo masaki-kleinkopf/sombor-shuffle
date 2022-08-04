@@ -1,0 +1,32 @@
+.random-stat {
+    height:50%;
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.stats-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.stat-date {
+    text-align: center;
+}
+
+.bubble {
+    border-radius: 50%;
+    height:60%;
+    width:24%;
+    background-color: rgb(206, 198, 198);
+}
+
+.stat {
+    text-align: center;
+    margin-top: 37%;
+    font-size: 2.5em;
+
+}

@@ -3,6 +3,7 @@ import '../styles/App.css';
 import { useEffect, useState } from "react"
 import getData from "../apiCalls"
 import RandomStat from "./RandomStat"
+import SavedStats from "./SavedStats"
 import { mapData } from "../utils"
 import { Route } from "react-router-dom"
 
@@ -46,6 +47,9 @@ function App() {
       
       <Route exact path = "/">
         {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat}/> : <p>loading</p>}
+      </Route>
+      <Route exact path = "/saved">
+        <SavedStats savedStats = {savedStats}/>
       </Route>
     </main>
   )

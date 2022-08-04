@@ -9,7 +9,7 @@
 .stats-container {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
 }
 
@@ -17,16 +17,15 @@
     text-align: center;
 }
 
-.bubble {
-    border-radius: 50%;
-    height:60%;
-    width:24%;
-    background-color: rgb(206, 198, 198);
-}
+
 
 .stat {
+    height: 1.8em;
+    width:2.5em;
     text-align: center;
     margin-top: 37%;
     font-size: 2.5em;
-
+    background-color: rgb(219, 213, 213);
+    border-radius: 50%;
+    padding-top: 30%;
 }

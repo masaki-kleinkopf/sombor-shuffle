@@ -3,11 +3,14 @@ import '../styles/App.css';
 import { useEffect, useState } from "react"
 import getData from "../apiCalls"
 import RandomStat from "./RandomStat"
+import SavedStats from "./SavedStats"
 import { mapData } from "../utils"
+import { Route } from "react-router-dom"
 
 function App() {
   const  [stats, setStats]  = useState([])
-  const [randomStat, setRandomStat] = useState([])
+  const [randomStat, setRandomStat] = useState({})
+  const [savedStats, setSavedStats] = useState([])
 
   useEffect(() => {
     const getStats = () => {
@@ -28,7 +31,12 @@ function App() {
     setRandomStat(stats[Math.floor(Math.random()*stats.length)])
   },[stats])
 
-
+  const saveStat = () => {
+    const foundStat = savedStats.indexOf(randomStat)
+    if (foundStat === -1) {
+      savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
+    }
+  }
   return (
     <main>
       <header>
@@ -37,8 +45,12 @@ function App() {
         <h4>points / rebounds / assists</h4>
       </header>
       
-        
-      {randomStat ? <RandomStat stats={stats}randomStat = {randomStat} setRandomStat ={setRandomStat} /> : <p>loading</p>}
+      <Route exact path = "/">
+        {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
+      </Route>
+      <Route exact path = "/saved">
+        <SavedStats savedStats = {savedStats}/>
+      </Route>
     </main>
   )
 }

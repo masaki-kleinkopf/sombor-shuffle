@@ -10,7 +10,7 @@ import { Route } from "react-router-dom"
 function App() {
   const  [stats, setStats]  = useState([])
   const [randomStat, setRandomStat] = useState({})
-  const [savedStats, setSavedStats] = useState([])
+  const [savedStats, setSavedStats] = useState(Object.values(localStorage).map(object => JSON.parse(object)))
 
   useEffect(() => {
     const getStats = () => {
@@ -38,7 +38,7 @@ function App() {
       console.log(statAsString)
       localStorage.setItem(randomStat.date,statAsString)
       console.log(localStorage)
-      savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
+      setSavedStats(Object.values(localStorage).map(object => JSON.parse(object)))
     }
   }
 

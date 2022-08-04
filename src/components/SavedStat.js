@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link  } from "react-router-dom"
+import PropTypes from "prop-types"
 
 const SavedStat = ({date, points, rebounds, assists, deleteStat}) => {
     const [gameNote, setGameNote] = useState("")
@@ -40,7 +41,14 @@ const SavedStat = ({date, points, rebounds, assists, deleteStat}) => {
       
     </div>
     )
-    
 }
 
 export default SavedStat
+
+SavedStat.propTypes = {
+    date:PropTypes.string.isRequired,
+    points:PropTypes.number.isRequired,
+    rebounds:PropTypes.number.isRequired,
+    assists:PropTypes.number.isRequired,
+    deleteStat: PropTypes.func.isRequired
+}

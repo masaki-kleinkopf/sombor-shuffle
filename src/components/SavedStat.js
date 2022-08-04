@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link  } from "react-router-dom"
 
-const SavedStat = ({date, points, rebounds, assists}) => {
+const SavedStat = ({date, points, rebounds, assists, deleteStat}) => {
     const [gameNote, setGameNote] = useState("")
     const [isSubmitted, setIsSubmitted] = useState(false)
     const handleClick= (event) => {
@@ -23,6 +23,7 @@ const SavedStat = ({date, points, rebounds, assists}) => {
                 <p className="stat">{assists}</p>
             </div>
         </div>
+        <button onClick={() => deleteStat(date)}>delete</button>
         {isSubmitted && <p className="game-note">{gameNote}</p>}
         {
         !isSubmitted &&

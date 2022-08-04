@@ -1,8 +1,8 @@
 import SavedStat from "./SavedStat"
 import { Link } from "react-router-dom"
-const SavedStats = ({ savedStats }) => {
+const SavedStats = ({ savedStats, deleteStat }) => {
     const savedStatsComponents = savedStats.map(stat => {
-        return <SavedStat date={stat.date} points={stat.points} assists={stat.assists} rebounds={stat.rebounds}/>
+        return <SavedStat date={stat.date} points={stat.points} assists={stat.assists} rebounds={stat.rebounds} deleteStat={deleteStat} key={stat.date}/>
     })
     return (
         <div className="saved-stats">

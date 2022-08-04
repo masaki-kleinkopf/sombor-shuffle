@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {Link} from "react-router-dom"
 import "../styles/RandomStat.css"
 
 const RandomStat = ({randomStat, stats,setRandomStat}) => {
@@ -19,7 +20,9 @@ const RandomStat = ({randomStat, stats,setRandomStat}) => {
                 </div>
             </div>
             <button>save this statline</button>
-            <button>show saved</button>
+            <Link to="/saved">
+                <button>show saved</button>
+            </Link>
         </div>
     )
 }

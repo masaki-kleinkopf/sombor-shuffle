@@ -1,4 +1,5 @@
-import {useState} from "react"
+import { useState } from "react"
+import { Link  } from "react-router-dom"
 
 const SavedStat = ({date, points, rebounds, assists}) => {
     const [gameNote, setGameNote] = useState("")
@@ -26,7 +27,7 @@ const SavedStat = ({date, points, rebounds, assists}) => {
         {
         !isSubmitted &&
             <form>
-                <input type="text-area" placeholder="game notes" value={gameNote} onChange={(event) => setGameNote(event.target.value)} required/>
+                <textarea placeholder="game notes" value={gameNote} onChange={(event) => setGameNote(event.target.value)} required/>
                 <button 
                     type="submit" 
                     onClick={handleClick}>

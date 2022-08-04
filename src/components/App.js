@@ -46,7 +46,7 @@ function App() {
       </header>
       
       <Route exact path = "/">
-        {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat}/> : <p>loading</p>}
+        {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
       </Route>
       <Route exact path = "/saved">
         <SavedStats savedStats = {savedStats}/>

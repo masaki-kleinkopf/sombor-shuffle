@@ -1,18 +1,18 @@
 import { useState } from "react"
-import { Link  } from "react-router-dom"
 import PropTypes from "prop-types"
 
-const SavedStat = ({date, points, rebounds, assists, deleteStat, stat}) => {
-    const [gameNote, setGameNote] = useState(JSON.parse(localStorage.getItem(date)).gameNote)
-    const [isSubmitted, setIsSubmitted] = useState(JSON.parse(localStorage.getItem(date)).isSubmitted)
+const SavedStat = ({ stat, deleteStat }) => {
+    const { date, points, assists, rebounds, id } = stat
+    const [gameNote, setGameNote] = useState(JSON.parse(localStorage.getItem(id)).gameNote)
+    const [isSubmitted, setIsSubmitted] = useState(JSON.parse(localStorage.getItem(id)).isSubmitted)
     
     const handleSubmit= (event) => {
             event.preventDefault()
             setIsSubmitted(!isSubmitted)
             stat.gameNote = gameNote
-            stat.isSubmitted = true;
+            stat.isSubmitted = true
             const statAsString = JSON.stringify(stat)
-            localStorage.setItem(date,statAsString)
+            localStorage.setItem(id,statAsString)
     }
 
     const handleEdit = (event) => {
@@ -34,7 +34,7 @@ const SavedStat = ({date, points, rebounds, assists, deleteStat, stat}) => {
                 <p className="stat">{assists}</p>
             </div>
         </div>
-        <button onClick={() => deleteStat(date)}>delete</button>
+        <button onClick={() => deleteStat(id)}>delete</button>
         {isSubmitted && <p className="game-note">{gameNote}</p>}
         {
         !isSubmitted &&
@@ -56,9 +56,6 @@ const SavedStat = ({date, points, rebounds, assists, deleteStat, stat}) => {
 export default SavedStat
 
 SavedStat.propTypes = {
-    date:PropTypes.string.isRequired,
-    points:PropTypes.number.isRequired,
-    rebounds:PropTypes.number.isRequired,
-    assists:PropTypes.number.isRequired,
+    stat:PropTypes.object.isRequired,
     deleteStat: PropTypes.func.isRequired
 }

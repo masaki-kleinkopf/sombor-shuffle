@@ -23,6 +23,28 @@ h4 {
   font-size: .4em;
 }
 
+button { 
+  background: none;
+	color:#0FB7FF;;
+  border: outset;
+	border:#0FB7FF;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+button:hover { 
+  background: none;
+	color:rgb(177, 177, 14);
+  border: outset;
+	border:#0FB7FF;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 .shuffle {
   color:#0FB7FF;
   /* text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,

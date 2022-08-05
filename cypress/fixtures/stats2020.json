@@ -1,0 +1,59 @@
+{
+    "data": [
+        {
+        
+            "id": 2852464,
+            "ast": 14,
+            "blk": 2,
+            "dreb": 12,
+            "fg3_pct": 50.0,
+            "fg3a": 2,
+            "fg3m": 1,
+            "fg_pct": 61.1,
+            "fga": 18,
+            "fgm": 11,
+            "ft_pct": 66.7,
+            "fta": 9,
+            "ftm": 6,
+            "game": {
+                "id": 127514,
+                "date": "2020-12-23T00:00:00.000Z",
+                "home_team_id": 8,
+                "home_team_score": 122,
+                "period": 5,
+                "postseason": false,
+                "season": 2020,
+                "status": "Final",
+                "time": "",
+                "visitor_team_id": 26,
+                "visitor_team_score": 124
+            },
+            "min": "41:50",
+            "oreb": 3,
+            "pf": 3,
+            "player": {
+                "id": 246,
+                "first_name": "Nikola",
+                "height_feet": 7,
+                "height_inches": 0,
+                "last_name": "Jokic",
+                "position": "C",
+                "team_id": 8,
+                "weight_pounds": 250
+            },
+            "pts": 29,
+            "reb": 15,
+            "stl": 0,
+            "team": {
+                "id": 8,
+                "abbreviation": "DEN",
+                "city": "Denver",
+                "conference": "West",
+                "division": "Northwest",
+                "full_name": "Denver Nuggets",
+                "name": "Nuggets"
+            },
+            "turnover": 6
+        }
+    ]
+}

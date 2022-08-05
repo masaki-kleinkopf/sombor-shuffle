@@ -38,7 +38,7 @@ function App() {
       console.log(statAsString)
       localStorage.setItem(randomStat.date,statAsString)
       console.log(localStorage)
-      setSavedStats(Object.values(localStorage).map(object => JSON.parse(object)))
+      savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
     }
   }
 

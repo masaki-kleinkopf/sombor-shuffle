@@ -10,7 +10,7 @@ import { Route } from "react-router-dom"
 function App() {
   const  [stats, setStats]  = useState([])
   const [randomStat, setRandomStat] = useState({})
-  const [savedStats, setSavedStats] = useState([])
+  const [savedStats, setSavedStats] = useState(Object.values(localStorage).map(object => JSON.parse(object)))
 
   useEffect(() => {
     const getStats = () => {
@@ -34,8 +34,22 @@ function App() {
   const saveStat = () => {
     const foundStat = savedStats.indexOf(randomStat)
     if (foundStat === -1) {
+      const statAsString = JSON.stringify(randomStat)
+      console.log(statAsString)
+      localStorage.setItem(randomStat.date,statAsString)
+      console.log(localStorage)
       savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
     }
+  }
+
+  const deleteStat = (date) => {
+    const filteredStats = savedStats.filter(stat => {
+      return stat.date !== date
+    })
+    console.log(date)
+    localStorage.removeItem(date)
+    setSavedStats(filteredStats)
+    console.log(localStorage)
   }
   return (
     <main>
@@ -49,7 +63,7 @@ function App() {
         {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
       </Route>
       <Route exact path = "/saved">
-        <SavedStats savedStats = {savedStats}/>
+        <SavedStats savedStats = {savedStats} deleteStat = {deleteStat}/>
       </Route>
     </main>
   )

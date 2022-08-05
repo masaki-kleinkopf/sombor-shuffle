@@ -23,8 +23,8 @@ const RandomStat = ({randomStat, stats, setRandomStat, saveStat ,savedStats}) =>
             <button onClick = {saveStat}>save this statline</button>
             {savedStats.length > 0 &&
                 <Link to="/saved">
-                <button>show saved</button>
-            </Link>
+                    <button>show saved</button>
+                </Link>
             }
         </div>
     )

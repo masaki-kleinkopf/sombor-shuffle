@@ -1,8 +1,10 @@
 import SavedStat from "./SavedStat"
 import { Link } from "react-router-dom"
-const SavedStats = ({ savedStats }) => {
+import PropTypes from "prop-types"
+
+const SavedStats = ({ savedStats, deleteStat }) => {
     const savedStatsComponents = savedStats.map(stat => {
-        return <SavedStat date={stat.date} points={stat.points} assists={stat.assists} rebounds={stat.rebounds}/>
+        return <SavedStat stat={stat} date={stat.date} points={stat.points} assists={stat.assists} rebounds={stat.rebounds} deleteStat={deleteStat} key={stat.date}/>
     })
     return (
         <div className="saved-stats">
@@ -15,3 +17,8 @@ const SavedStats = ({ savedStats }) => {
 }
 
 export default SavedStats
+
+SavedStats.propTypes = {
+    savedStats: PropTypes.array,
+    deleteStat: PropTypes.func.isRequired
+}

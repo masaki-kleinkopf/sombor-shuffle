@@ -11,6 +11,7 @@ function App() {
   const  [stats, setStats]  = useState([])
   const [randomStat, setRandomStat] = useState({})
   const [savedStats, setSavedStats] = useState(Object.values(localStorage).map(object => JSON.parse(object)))
+  const [error, setError] = useState("")
 
   useEffect(() => {
     const getStats = () => {
@@ -21,8 +22,9 @@ function App() {
       .then((data) => {
         const data2020 = mapData(data[0].data)
         const data2021 = mapData(data[1].data)
-      setStats([...data2020,...data2021])
+        setStats([...data2020,...data2021])
     })
+    .catch(err => setError(err.message))
   }
     getStats();
   },[])
@@ -60,9 +62,9 @@ function App() {
         <h1>get a random statline from Nikola Jokic's MVP seasons</h1>
         <h4>points / rebounds / assists</h4>
       </header>
-      
       <Route exact path = "/">
-        {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
+        {error && <p>something went wrong!!</p>}
+        {randomStat && !error ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
       </Route>
       <Route exact path = "/saved">
         <SavedStats savedStats = {sortedSavedStats} deleteStat = {deleteStat}/>

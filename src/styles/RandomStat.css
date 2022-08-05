@@ -30,6 +30,10 @@
     padding-top: 30%;
 }
 
+.stat-blue {
+    background-color: #0FB7FF;
+}
+
 a {
     align-self: center;
 }

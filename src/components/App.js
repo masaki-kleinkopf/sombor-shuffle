@@ -36,18 +36,20 @@ function App() {
     if (foundStat === -1) {
       const statAsString = JSON.stringify(randomStat)
       console.log(statAsString)
-      localStorage.setItem(randomStat.date,statAsString)
+      localStorage.setItem(randomStat.id,statAsString)
       console.log(localStorage)
       savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
     }
   }
 
-  const deleteStat = (date) => {
+  const sortedSavedStats = [...savedStats].sort((a,b) => a.id - b.id)
+
+  const deleteStat = (id) => {
     const filteredStats = savedStats.filter(stat => {
-      return stat.date !== date
+      return stat.id !== id
     })
-    console.log(date)
-    localStorage.removeItem(date)
+    console.log(id)
+    localStorage.removeItem(id)
     setSavedStats(filteredStats)
     console.log(localStorage)
   }
@@ -63,7 +65,7 @@ function App() {
         {randomStat ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
       </Route>
       <Route exact path = "/saved">
-        <SavedStats savedStats = {savedStats} deleteStat = {deleteStat}/>
+        <SavedStats savedStats = {sortedSavedStats} deleteStat = {deleteStat}/>
       </Route>
     </main>
   )

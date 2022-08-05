@@ -11,13 +11,13 @@ const RandomStat = ({randomStat, stats, setRandomStat, saveStat ,savedStats}) =>
             <p className="stat-date">{randomStat.date}</p>
             <div className="stats-container">
                 <div className="bubble">
-                    <p className="stat">{randomStat.points}</p>
+                    {randomStat.points > 9 ? <p className="stat stat-blue" >{randomStat.points}</p> : <p className="stat">{randomStat.points}</p>}
                 </div>
                 <div className="bubble">
-                    <p className="stat">{randomStat.rebounds}</p>
+                {randomStat.rebounds > 9 ? <p className="stat stat-blue" >{randomStat.rebounds}</p> : <p className="stat">{randomStat.rebounds}</p>}
                 </div>
                 <div className="bubble">
-                    <p className="stat">{randomStat.assists}</p>
+                {randomStat.assists > 9 ? <p className="stat stat-blue" >{randomStat.assists}</p> : <p className="stat">{randomStat.assists}</p>}
                 </div>
             </div>
             <button onClick = {saveStat}>save this statline</button>

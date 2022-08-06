@@ -12,6 +12,7 @@ function App() {
   const [randomStat, setRandomStat] = useState({})
   const [savedStats, setSavedStats] = useState(Object.values(localStorage).map(object => JSON.parse(object)))
   const [error, setError] = useState("")
+  const [isSaved, setIsSaved] = useState(false)
 
   useEffect(() => {
     const getStats = () => {
@@ -41,6 +42,7 @@ function App() {
       localStorage.setItem(randomStat.id,statAsString)
       console.log(localStorage)
       savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
+      setIsSaved(true)
     }
   }
 
@@ -64,7 +66,7 @@ function App() {
       </header>
       <Route exact path = "/">
         {error && <p>something went wrong!!</p>}
-        {randomStat && !error ? <RandomStat stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
+        {randomStat && !error ? <RandomStat isSaved = {isSaved} setIsSaved = {setIsSaved} stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
       </Route>
       <Route exact path = "/saved">
         <SavedStats savedStats = {sortedSavedStats} deleteStat = {deleteStat}/>

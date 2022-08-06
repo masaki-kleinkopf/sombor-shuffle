@@ -1,5 +1,6 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
+import "../styles/SavedStat.css"
 
 const SavedStat = ({ stat, deleteStat }) => {
     const { date, points, assists, rebounds, id } = stat
@@ -22,34 +23,36 @@ const SavedStat = ({ stat, deleteStat }) => {
 
     return (
         <div className="saved-stat">
-        <p className="stat-date">{date}</p>
-        <div className="stats-container">
-            <div className="bubble">
-                <p className="stat">{points}</p>
+            <p className="stat-date">{date}</p>
+            <div className="stats-container">
+                <div className="bubble">
+                    {points > 9 ? <p className="stat stat-blue" >{points}</p> : <p className="stat">{points}</p>}
+                </div>
+                <div className="bubble">
+                    {rebounds > 9 ? <p className="stat stat-blue" >{rebounds}</p> : <p className="stat">{rebounds}</p>}
+                </div>
+                <div className="bubble">
+                    {assists > 9 ? <p className="stat stat-blue" >{assists}</p> : <p className="stat">{assists}</p>}
+                </div>
             </div>
-            <div className="bubble">
-                <p className="stat">{rebounds}</p>
-            </div>
-            <div className="bubble">
-                <p className="stat">{assists}</p>
+            {isSubmitted && <p className="game-note">{gameNote}</p>}
+            {
+            !isSubmitted &&
+                <form>
+                    <textarea placeholder="game notes" value={gameNote} onChange={(event) => setGameNote(event.target.value)} required/>
+                    <br></br>
+                    <button 
+                        type="submit" 
+                        onClick={handleSubmit}>
+                            add game note
+                    </button>
+                </form>    
+            }
+            {isSubmitted && <button onClick={handleEdit}>edit game note</button>}
+            <div className="delete-button-container">
+                <button className="delete-button" onClick={() => deleteStat(id)}>delete stat</button>
             </div>
         </div>
-        <button onClick={() => deleteStat(id)}>delete</button>
-        {isSubmitted && <p className="game-note">{gameNote}</p>}
-        {
-        !isSubmitted &&
-            <form>
-                <textarea placeholder="game notes" value={gameNote} onChange={(event) => setGameNote(event.target.value)} required/>
-                <button 
-                    type="submit" 
-                    onClick={handleSubmit}>
-                        add
-                </button>
-            </form>    
-        }
-        {isSubmitted && <button onClick={handleEdit}>edit</button>}
-      
-    </div>
     )
 }
 

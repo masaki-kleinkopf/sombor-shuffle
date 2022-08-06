@@ -26,22 +26,39 @@ describe('empty spec', () => {
 
   it('should have home, delete and add buttons', () => {
     cy.get("button").first().contains("home")
-    cy.get("button").eq(1).contains("delete")
-    cy.get("button").last().contains("add")
+    cy.get("button").eq(1).contains("add game note")
+    cy.get("button").last().contains("delete stat")
     cy.get("textarea").should("have.attr","placeholder", "game notes")
   })
 
   it('should be able to add game note', () => {
     cy.get("textarea").type("this was a wild game, Jokic carried the team")
-    cy.get("button").last().click()
+    cy.get("button").eq(1).click()
+    cy.get(".game-note").contains("this was a wild game, Jokic carried the team")
+  })
+
+  it('should be able to edit game note', () => {
+    cy.get("textarea").type("this was a wild game, Jokic carried the team")
+    cy.get("button").eq(1).click()
+    cy.get(".game-note").contains("this was a wild game, Jokic carried the team")
+    cy.get("button").eq(1).click()
+    cy.get("textarea").type("this was a wild game, Jokic carried the team, but we still lost :(((")
+    cy.get("button").eq(1).click()
+    cy.get(".game-note").contains("this was a wild game, Jokic carried the team, but we still lost :(((")
+  })
+
+  it('should persist stat and game note on reload', () => {
+    cy.get("textarea").type("this was a wild game, Jokic carried the team")
+    cy.get("button").eq(1).click()
+    cy.visit('http://localhost:3000/saved')
     cy.get(".game-note").contains("this was a wild game, Jokic carried the team")
   })
 
   it('should be able to delete game note', () => {
     cy.get("textarea").type("this was a wild game, Jokic carried the team")
-    cy.get("button").last().click()
-    cy.get(".game-note").contains("this was a wild game, Jokic carried the team")
     cy.get("button").eq(1).click()
+    cy.get(".game-note").contains("this was a wild game, Jokic carried the team")
+    cy.get("button").last().click()
     cy.get(".saved-stat").should("not.exist")
   })
 

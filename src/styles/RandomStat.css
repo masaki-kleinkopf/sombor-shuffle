@@ -35,6 +35,10 @@
     color:white;
 }
 
+.opponent {
+    text-align: center;
+}
+
 a {
     align-self: center;
 }

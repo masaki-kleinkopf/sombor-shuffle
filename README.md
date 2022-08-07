@@ -1,5 +1,5 @@
 # small Talk
-##Overview
+## Overview
 
 Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. Over the best two years, fans of the NBA have become accustomed to incredible performances from the star, and this app gives fans a way to remember some unique statlines from the prime of a future hall of famer. The app provides a random statline (points, rebounds, assists) from one of his MVP seasons, with save functionality and ability to add a game note. These saves will persist even on reload. 
 
@@ -15,7 +15,7 @@ Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. O
 
 #### Usage 
 
-Visit the app from desktop or mobile! Click "get new random statline" to get a random statline. Stats will be in blue if they are double digits, to easily show a triple double statline when they occured. Stats can be saved, and once saved a button will appear to see saved stats. Click on saved stats to go to a new url to see all statlines that you have saved, with ability to add and edit a game note. These stats and gamenotes will persist on reloading.
+Visit the app from desktop or mobile! Click "get new random statline" to get a random statline. Stats will be blue if they are double digits, to easily show a triple double statline when they occured. Stats can be saved, and once saved a button will appear to see saved stats. Click on saved stats to go to a new url to see all statlines that you have saved, with ability to add and edit a game note. These stats and gamenotes will persist on reloading.
 
 #### Testing Instructions
 In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!

@@ -13,7 +13,6 @@ function App() {
   const [savedStats, setSavedStats] = useState(Object.values(localStorage).map(object => JSON.parse(object)))
   const [error, setError] = useState("")
   const [isSaved, setIsSaved] = useState(false)
-  let teams;
 
   useEffect(() => {
     const getStats = () => {
@@ -25,7 +24,7 @@ function App() {
       .then((data) => {
         const data2020 = mapData(data[0].data)
         const data2021 = mapData(data[1].data)
-        teams = mapTeams(data[2].data)
+        const teams = mapTeams(data[2].data)
         let allData = [...data2020,...data2021]
         const statsWithTeams = allData.map(stat => {
           const foundTeam = teams.find(team => team.id === stat.opponent) 
@@ -61,6 +60,7 @@ function App() {
     localStorage.removeItem(id)
     setSavedStats(filteredStats)
   }
+  
   return (
     <main>
       <header>

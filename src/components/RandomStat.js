@@ -9,6 +9,7 @@ const RandomStat = ({ randomStat, stats, setRandomStat, saveStat, savedStats, se
         setIsSaved(false)
         setRandomStat(stats[Math.floor(Math.random()*stats.length)])
     }
+    
     return (
         <div className="random-stat">
             <button onClick={handleRandomClick}>get new random statline</button>

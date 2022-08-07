@@ -6,6 +6,7 @@ const SavedStats = ({ savedStats, deleteStat }) => {
     const savedStatsComponents = savedStats.map(stat => {
         return <SavedStat stat={stat} key={stat.id} deleteStat={deleteStat}/>
     })
+    
     return (
         <div className="saved-stats">
             <Link to = "/">

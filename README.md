@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# small Talk
+##Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. Over the best two years, fans of the NBA have become accustomed to incredible performances from the star, and this app gives fans a way to remember some unique statlines from the prime of a future hall of famer. The app provides a random statline (points, rebounds, assists) from one of his MVP seasons, with save functionality and ability to add a game note. These saves will persist even on reload. 
 
-## Available Scripts
+### How to access the application:
+#### Go to this [link](https://sombor-shuffle.vercel.app/) where the application is deployed on Vercel
 
-In the project directory, you can run:
+#### Or if you prefer to access the code as well as the application follow these *installation instructions*
 
-### `npm start`
+- Clone down this repository into your local machine
+- `cd` into the root directory of the repo
+- Run `npm i` in your console to install the dependencies
+- Run `npm start` in the console to start the sever and access the application from your browser
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Usage 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Visit the app from desktop or mobile! Click "get new random statline" to get a random statline. Stats will be in blue if they are double digits, to easily show a triple double statline when they occured. Stats can be saved, and once saved a button will appear to see saved stats. Click on saved stats to go to a new url to see all statlines that you have saved, with ability to add and edit a game note. These stats and gamenotes will persist on reloading.
 
-### `npm test`
+#### Testing Instructions
+In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### See it in action 
+  
+![somborgif1](https://user-images.githubusercontent.com/97985027/183306932-41c33f0a-f0b2-4a2b-a7b1-0f0731a1f652.gif)
+![somborgif2](https://user-images.githubusercontent.com/97985027/183306955-b1da648a-3133-4ce6-8480-ec26aebcc272.gif)
 
-### `npm run build`
+ 
+![Save random boosters!](/src/assets/smallTalk2.gif "save boosters")
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Technologies used:
+- React
+- HTML5 
+- CSS3
+- React Router v5
+- Local Storage
+- Fetch API
+- Cypress E2E testing
+- Figma
+- Vercel deployment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Goals:
+- Build an app using React Hooks.
+- Implement React Router to create a multi-page application.
+- Build responsive design for use on different screen sizes.
+- Utilize local storage so that saved statlines persist.
+- End-to-end testing using Cypress, testing all user flows.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Future Iterations:
+- Add final score.
+- When random stat is clicked on, it shows new random stat.
+- When title is clicked it goes to home page from saved page. 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

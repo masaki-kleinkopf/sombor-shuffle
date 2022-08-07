@@ -11,7 +11,6 @@ const mapData = (seasonsData) => {
 }
 
 const mapTeams = (teamsData) => {
-    console.log(teamsData)
     return teamsData.map(data => {
         return {id:data.id, team: data.abbreviation}
     })

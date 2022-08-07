@@ -42,4 +42,7 @@ RandomStat.propTypes = {
     stats: PropTypes.array.isRequired,
     setRandomStat: PropTypes.func.isRequired,
     saveStat: PropTypes.func.isRequired,
+    savedStats:PropTypes.array.isRequired,
+    setIsSaved:PropTypes.func.isRequired,
+    isSaved:PropTypes.bool.isRequired
 }

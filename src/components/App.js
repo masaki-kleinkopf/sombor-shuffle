@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import getData from "../apiCalls"
 import RandomStat from "./RandomStat"
 import SavedStats from "./SavedStats"
-import { mapData } from "../utils"
+import { mapData, mapTeams } from "../utils"
 import { Route } from "react-router-dom"
 
 function App() {
@@ -13,17 +13,25 @@ function App() {
   const [savedStats, setSavedStats] = useState(Object.values(localStorage).map(object => JSON.parse(object)))
   const [error, setError] = useState("")
   const [isSaved, setIsSaved] = useState(false)
+  let teams;
 
   useEffect(() => {
     const getStats = () => {
       Promise.all([
       getData("https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=246&per_page=82"),
-      getData("https://www.balldontlie.io/api/v1/stats?seasons[]=2021&player_ids[]=246&per_page=82")
+      getData("https://www.balldontlie.io/api/v1/stats?seasons[]=2021&player_ids[]=246&per_page=82"),
+      getData("https://www.balldontlie.io/api/v1/teams")
     ])
       .then((data) => {
         const data2020 = mapData(data[0].data)
         const data2021 = mapData(data[1].data)
-        setStats([...data2020,...data2021])
+        teams = mapTeams(data[2].data)
+        let allData = [...data2020,...data2021]
+        const statsWithTeams = allData.map(stat => {
+          const foundTeam = teams.find(team => team.id === stat.opponent) 
+          return {...stat, opponent: foundTeam.team }
+        })
+        setStats(statsWithTeams)
     })
     .catch(err => setError(err.message))
   }
@@ -38,9 +46,7 @@ function App() {
     const foundStat = savedStats.indexOf(randomStat)
     if (foundStat === -1) {
       const statAsString = JSON.stringify(randomStat)
-      console.log(statAsString)
       localStorage.setItem(randomStat.id,statAsString)
-      console.log(localStorage)
       savedStats.length > 0 ? setSavedStats([...savedStats, randomStat]) : setSavedStats([randomStat])
       setIsSaved(true)
     }
@@ -52,10 +58,8 @@ function App() {
     const filteredStats = savedStats.filter(stat => {
       return stat.id !== id
     })
-    console.log(id)
     localStorage.removeItem(id)
     setSavedStats(filteredStats)
-    console.log(localStorage)
   }
   return (
     <main>

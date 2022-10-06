@@ -1,6 +1,7 @@
 import SavedStat from "./SavedStat"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
+import "../styles/SavedStats.css"
 
 const SavedStats = ({ savedStats, deleteStat }) => {
     const savedStatsComponents = savedStats.map(stat => {
@@ -12,7 +13,9 @@ const SavedStats = ({ savedStats, deleteStat }) => {
             <Link to = "/">
                 <button>home</button>
             </Link>
-            {savedStatsComponents}
+            <div className="saved-stats-container">
+                {savedStatsComponents}
+            </div>
         </div>
     )
 }

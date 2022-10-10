@@ -1,0 +1,18 @@
+.saved-stats {
+    display:flex;
+    flex-direction: column;
+}
+
+.saved-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+    column-gap: 40px;
+}
+@media screen and (max-width: 500px) {
+    .saved-stats-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+  }

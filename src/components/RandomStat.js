@@ -15,7 +15,6 @@ const RandomStat = ({ randomStat, stats, setRandomStat, saveStat, savedStats, se
             <button onClick={handleRandomClick}>get new random statline</button>
             <p className="stat-date">{randomStat.date}</p>
             <p className="opponent">DEN {randomStat.nuggets_score}<br></br>vs<br></br>{randomStat.opponent} {randomStat.opponent_score}</p>
-            
             <div className="stats-container">
                 <div className="bubble">
                     {randomStat.points > 9 ? <p className="stat stat-blue" >{randomStat.points}</p> : <p className="stat">{randomStat.points}</p>}

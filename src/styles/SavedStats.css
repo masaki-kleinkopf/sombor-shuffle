@@ -4,15 +4,15 @@
 }
 
 .saved-stats-container {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
-    flex-wrap: wrap;
-    /* width:120%; */
+    column-gap: 40px;
 }
-/* @media screen and (max-width: 500px) {
-    button {
-      font-size: 1.2rem;
-    }
-  } */
+@media screen and (max-width: 500px) {
+    .saved-stats-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+  }

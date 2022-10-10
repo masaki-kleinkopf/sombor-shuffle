@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import "../styles/RandomStat.css"
-import SavedStats from "./SavedStats"
 
 const RandomStat = ({ randomStat, stats, setRandomStat, saveStat, savedStats, setIsSaved, isSaved }) => {
     const handleRandomClick = () => {

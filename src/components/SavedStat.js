@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import "../styles/SavedStat.css"
 
 const SavedStat = ({ stat, deleteStat }) => {
-    const { date, points, assists, rebounds, id, opponent } = stat
+    const { date, points, assists, rebounds, id, opponent, nuggets_score, opponent_score } = stat
     const [gameNote, setGameNote] = useState(JSON.parse(localStorage.getItem(id)).gameNote)
     const [isSubmitted, setIsSubmitted] = useState(JSON.parse(localStorage.getItem(id)).isSubmitted)
     
@@ -24,7 +24,7 @@ const SavedStat = ({ stat, deleteStat }) => {
     return (
         <div className="saved-stat">
             <p className="stat-date">{date}</p>
-            <p className="opponent">vs<br></br>{opponent}</p>
+            <p className="opponent">DEN {nuggets_score}<br></br>vs<br></br>{opponent} {opponent_score}</p>
             <div className="stats-container">
                 <div className="bubble">
                     {points > 9 ? <p className="stat stat-blue" >{points}</p> : <p className="stat">{points}</p>}

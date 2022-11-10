@@ -21,7 +21,7 @@ Visit the app from desktop or mobile! Click "get new random statline" to get a r
 In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!
 
 #### See it in action 
-  
+![sombor-shuffle](https://user-images.githubusercontent.com/97985027/201010846-ef0f4b82-5e2a-4cd1-bdd8-575ee9967081.gif)
 ![somborgif1](https://user-images.githubusercontent.com/97985027/183306932-41c33f0a-f0b2-4a2b-a7b1-0f0731a1f652.gif)
 ![somborgif2](https://user-images.githubusercontent.com/97985027/183306955-b1da648a-3133-4ce6-8480-ec26aebcc272.gif)
 

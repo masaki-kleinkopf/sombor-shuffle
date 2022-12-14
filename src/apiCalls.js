@@ -1,4 +1,4 @@
-const getData = (url: string) => {
+const getData = (url) => {
   return fetch(url).then((response) => {
     if (!response.ok) {
       throw Error("HTTP error " + response.status);

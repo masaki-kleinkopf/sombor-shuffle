@@ -1,4 +1,4 @@
-import { DarkModeProvider, DarkModeContext } from "../context/DarkThemeProvider"
+import { DarkModeContext } from "../context/DarkThemeProvider"
 import { useContext } from "react"
 
 const DarkModeSwitch = () => {

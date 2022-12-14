@@ -1,11 +1,13 @@
 
 import '../styles/App.css';
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import getData from "../apiCalls"
 import RandomStat from "./RandomStat"
 import SavedStats from "./SavedStats"
 import { mapData, mapTeams } from "../utils"
 import { Route } from "react-router-dom"
+import { DarkModeContext } from "../context/DarkThemeProvider"
+import DarkModeSwitch from "./DarkModeSwitch"
 
 function App() {
   const  [stats, setStats]  = useState([])
@@ -60,22 +62,25 @@ function App() {
     localStorage.removeItem(id)
     setSavedStats(filteredStats)
   }
+
+  const { darkMode } = useContext(DarkModeContext);
   
   return (
-    <main>
-      <header>
-        sombor <span className="shuffle">shuffle</span>
-        <h1>get a random statline from Nikola Jokic's MVP seasons</h1>
-        <h4>points / rebounds / assists</h4>
-      </header>
-      <Route exact path = "/">
-        {error && <p>something went wrong!!</p>}
-        {randomStat && !error ? <RandomStat isSaved = {isSaved} setIsSaved = {setIsSaved} stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
-      </Route>
-      <Route exact path = "/saved">
-        <SavedStats savedStats = {sortedSavedStats} deleteStat = {deleteStat}/>
-      </Route>
-    </main>
+      <main className={darkMode && "dark-mode"}>
+        <header>
+          sombor <span className="shuffle">shuffle</span>
+          <h1>get a random statline from Nikola Jokic's MVP seasons</h1>
+          <h4>points / rebounds / assists</h4>
+        </header>
+        <Route exact path = "/">
+          {error && <p>something went wrong!!</p>}
+          {randomStat && !error ? <RandomStat isSaved = {isSaved} setIsSaved = {setIsSaved} stats={stats} randomStat = {randomStat} setRandomStat ={setRandomStat} saveStat = {saveStat} savedStats = {savedStats}/> : <p>loading</p>}
+        </Route>
+        <Route exact path = "/saved">
+          <SavedStats savedStats = {sortedSavedStats} deleteStat = {deleteStat}/>
+        </Route>
+        <DarkModeSwitch />
+      </main>
   )
 }
 

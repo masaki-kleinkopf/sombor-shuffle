@@ -19,7 +19,7 @@ function App() {
   );
   const [error, setError] = useState("");
   const [isSaved, setIsSaved] = useState(false);
-  const [selected, setSelected] = useState("21+22");
+  const [selected, setSelected] = useState("21-22");
 
   useEffect(() => {
     const getStats = () => {
@@ -90,13 +90,14 @@ function App() {
       <Select selected={selected} setSelected={setSelected} />
       <Route exact path="/">
         {error && <p>something went wrong!!</p>}
-        {selected === "20-21" && <Chart stats={stats2020} />}
-        {selected === "21-22" && <Chart stats={stats2021} />}
+        {selected === "20-21" && (
+          <Chart stats={stats2020} selected={selected} />
+        )}
+        {selected === "21-22" && (
+          <Chart stats={stats2021} selected={selected} />
+        )}
         {selected === "21+22" && (
-          <div>
-            <Chart stats={stats2020} />
-            <Chart stats={stats2021} />
-          </div>
+          <Chart stats={[...stats2020, ...stats2021]} selected={selected} />
         )}
         {randomStat && selected === "random" && (
           <RandomStat

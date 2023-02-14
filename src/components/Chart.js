@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-const Chart = ({ stats }) => {
+const Chart = ({ stats, selected }) => {
   const options = {
     responsive: true,
     plugins: {
@@ -30,11 +30,11 @@ const Chart = ({ stats }) => {
       },
       title: {
         display: true,
-        text: "Points - Rebounds - Assists",
+        text: selected,
       },
     },
   };
-  const labels = stats.map((stat) => stat.date);
+  const labels = stats.map((stat) => `${stat.date} vs ${stat.opponent}`);
   const data = {
     labels,
     datasets: [

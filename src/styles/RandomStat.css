@@ -1,43 +1,44 @@
 .random-stat {
-    height:50%;
-    width:50%;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-bottom:1em;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .stats-container {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
 }
 
 .stat-date {
-    text-align: center;
+  text-align: center;
 }
 
 .stat {
-    height: 1.8em;
-    width:2.5em;
-    text-align: center;
-    margin-top: 37%;
-    font-size: 2.5em;
-    background-color: rgb(219, 213, 213);
-    border-radius: 50%;
-    padding-top: 30%;
+  height: 1.8em;
+  width: 2.5em;
+  text-align: center;
+  margin-top: 37%;
+  font-size: 2.5em;
+  background-color: rgb(219, 213, 213);
+  border-radius: 50%;
+  padding-top: 30%;
 }
 
 .stat-blue {
-    background-color: #0FB7FF;
-    color:white;
+  background-color: #0fb7ff;
+  color: white;
 }
 
 .opponent {
-    text-align: center;
+  text-align: center;
 }
 
 a {
-    align-self: center;
+  align-self: center;
 }

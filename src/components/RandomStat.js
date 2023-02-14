@@ -49,14 +49,15 @@ const RandomStat = ({
           )}
         </div>
       </div>
-      <button onClick={saveStat}>
+      {/* remove save stat functionality for now */}
+      {/* <button onClick={saveStat}>
         {isSaved ? "saved!" : "save this statline"}
-      </button>
-      {savedStats.length > 0 && (
+      </button> */}
+      {/* {savedStats.length > 0 && (
         <Link to="/saved">
           <button className="show-saved-button">show saved</button>
         </Link>
-      )}
+      )} */}
     </div>
   );
 };

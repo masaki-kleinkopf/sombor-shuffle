@@ -21,7 +21,8 @@ Visit the app from desktop or mobile! Click "get new random statline" to get a r
 In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!
 
 #### See it in action 
-![sombor-shuffle](https://user-images.githubusercontent.com/97985027/201010846-ef0f4b82-5e2a-4cd1-bdd8-575ee9967081.gif)
+<img width="1440" alt="Screen Shot 2023-02-14 at 1 01 12 PM" src="https://user-images.githubusercontent.com/97985027/218862313-99354a48-543d-44dc-bfcc-ce9ca665af42.png">
+
  
 ![Save random boosters!](/src/assets/smallTalk2.gif "save boosters")
 

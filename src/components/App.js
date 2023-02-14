@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import getData from "../apiCalls";
 import RandomStat from "./RandomStat";
 import SavedStats from "./SavedStats";
+import Chart from "./Chart";
 import { mapData, mapTeams } from "../utils";
 import { Route } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkThemeProvider";
@@ -94,6 +95,7 @@ function App() {
         ) : (
           <p>loading</p>
         )}
+        <Chart stats={stats} />
       </Route>
       <Route exact path="/saved">
         <SavedStats savedStats={sortedSavedStats} deleteStat={deleteStat} />

@@ -83,8 +83,7 @@ function App() {
     <main className={darkMode && "dark-mode"}>
       <header>
         sombor <span className="shuffle">shuffle</span>
-        <h1>get a random statline from Nikola Jokic's MVP seasons</h1>
-        <h4>points / rebounds / assists</h4>
+        <h1>stats from Nikola Jokic's MVP seasons</h1>
       </header>
       <Route exact path="/">
         {error && <p>something went wrong!!</p>}

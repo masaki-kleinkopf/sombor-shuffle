@@ -4,6 +4,7 @@ import getData from "../apiCalls";
 import RandomStat from "./RandomStat";
 import SavedStats from "./SavedStats";
 import Chart from "./Chart";
+import Select from "./Select";
 import { mapData, mapTeams } from "../utils";
 import { Route } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkThemeProvider";
@@ -18,6 +19,7 @@ function App() {
   );
   const [error, setError] = useState("");
   const [isSaved, setIsSaved] = useState(false);
+  const [selected, setSelected] = useState("2021+2022");
 
   useEffect(() => {
     const getStats = () => {
@@ -85,10 +87,11 @@ function App() {
         sombor <span className="shuffle">shuffle</span>
         <h1>stats from Nikola Jokic's MVP seasons</h1>
       </header>
+      <Select selected={selected} setSelected={setSelected} />
       <Route exact path="/">
         {error && <p>something went wrong!!</p>}
-        <Chart stats={stats2020} />
-        <Chart stats={stats2021} />
+        {stats2020 && <Chart stats={stats2020} />}
+        {stats2021 && <Chart stats={stats2021} />}
         {randomStat && !error ? (
           <RandomStat
             isSaved={isSaved}

@@ -22,7 +22,6 @@ ChartJS.register(
 );
 
 const Chart = ({ stats }) => {
-  let year = stats[0].date.split("/")[2] === "2020" ? "2020/2021" : "2021/2022";
   const options = {
     responsive: true,
     plugins: {
@@ -31,7 +30,7 @@ const Chart = ({ stats }) => {
       },
       title: {
         display: true,
-        text: year,
+        text: "Points - Rebounds - Assists",
       },
     },
   };

@@ -22,6 +22,8 @@ In your terminal, run `npx cypress open` to see that all user flows have been te
 
 #### See it in action 
 <img width="1440" alt="Screen Shot 2023-02-14 at 1 01 12 PM" src="https://user-images.githubusercontent.com/97985027/218862313-99354a48-543d-44dc-bfcc-ce9ca665af42.png">
+<img width="1440" alt="Screen Shot 2023-02-14 at 1 01 39 PM" src="https://user-images.githubusercontent.com/97985027/218862454-e404fefd-eb9b-4bf2-9c4f-15a586b60fdf.png">
+<img width="1440" alt="Screen Shot 2023-02-14 at 1 01 25 PM" src="https://user-images.githubusercontent.com/97985027/218862459-7442cbdd-221c-46b8-a517-b3786db13e9d.png">
 
  
 ![Save random boosters!](/src/assets/smallTalk2.gif "save boosters")

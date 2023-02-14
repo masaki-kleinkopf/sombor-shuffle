@@ -1,7 +1,7 @@
 # sombor shuffle
 ## Overview
 
-Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. Over the best two years, fans of the NBA have become accustomed to incredible performances from the star, and this app gives fans a way to remember some unique statlines from the prime of a future hall of famer. The app provides a random statline (points, rebounds, assists) from one of his MVP seasons, with save functionality and ability to add a game note. These saves will persist even on reload. 
+Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. Over the last two years, fans of the NBA have become accustomed to incredible performances from the star, and this app gives fans a way to remember some unique statlines from the prime of a future hall of famer. The app provides graphs and a random statline functionality (points, rebounds, assists) from one of his MVP seasons. 
 
 ### How to access the application:
 #### Go to this [link](https://sombor-shuffle.vercel.app/) where the application is deployed on Vercel
@@ -21,7 +21,10 @@ Visit the app from desktop or mobile! Click "get new random statline" to get a r
 In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!
 
 #### See it in action 
-![sombor-shuffle](https://user-images.githubusercontent.com/97985027/201010846-ef0f4b82-5e2a-4cd1-bdd8-575ee9967081.gif)
+<img width="1440" alt="Screen Shot 2023-02-14 at 1 01 12 PM" src="https://user-images.githubusercontent.com/97985027/218862313-99354a48-543d-44dc-bfcc-ce9ca665af42.png">
+<img width="1440" alt="Screen Shot 2023-02-14 at 1 01 39 PM" src="https://user-images.githubusercontent.com/97985027/218862454-e404fefd-eb9b-4bf2-9c4f-15a586b60fdf.png">
+<img width="1440" alt="Screen Shot 2023-02-14 at 1 01 25 PM" src="https://user-images.githubusercontent.com/97985027/218862459-7442cbdd-221c-46b8-a517-b3786db13e9d.png">
+
  
 ![Save random boosters!](/src/assets/smallTalk2.gif "save boosters")
 

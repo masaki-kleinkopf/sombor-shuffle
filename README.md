@@ -1,7 +1,7 @@
 # sombor shuffle
 ## Overview
 
-Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. Over the best two years, fans of the NBA have become accustomed to incredible performances from the star, and this app gives fans a way to remember some unique statlines from the prime of a future hall of famer. The app provides a random statline (points, rebounds, assists) from one of his MVP seasons, with save functionality and ability to add a game note. These saves will persist even on reload. 
+Sombor shuffle is an app for fans of 2x NBA MVP Nikola Jokic, built in 5 days. Over the last two years, fans of the NBA have become accustomed to incredible performances from the star, and this app gives fans a way to remember some unique statlines from the prime of a future hall of famer. The app provides graphs and a random statline functionality (points, rebounds, assists) from one of his MVP seasons. 
 
 ### How to access the application:
 #### Go to this [link](https://sombor-shuffle.vercel.app/) where the application is deployed on Vercel

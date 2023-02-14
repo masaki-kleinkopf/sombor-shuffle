@@ -19,7 +19,7 @@ const RandomStat = ({
 
   return (
     <div className="random-stat">
-      <button onClick={handleRandomClick}>get new random statline</button>
+      <button onClick={handleRandomClick}>get a new random statline</button>
       <p className="stat-date">{randomStat.date}</p>
       <p className="opponent">
         DEN {randomStat.nuggets_score}

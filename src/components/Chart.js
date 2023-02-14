@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import "../styles/Chart.css";
 
 ChartJS.register(
   CategoryScale,
@@ -20,20 +21,20 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
-    },
-  },
-};
-
 const Chart = ({ stats }) => {
+  let year = stats[0].date.split("/")[2] === 2020 ? "2020/2021" : "2021/2022";
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: year,
+      },
+    },
+  };
   const labels = stats.map((stat) => stat.date);
   const data = {
     labels,
@@ -58,7 +59,11 @@ const Chart = ({ stats }) => {
       },
     ],
   };
-  return <Line options={options} data={data} />;
+  return (
+    <div className="chart">
+      <Line options={options} data={data} />
+    </div>
+  );
 };
 
 export default Chart;

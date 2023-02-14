@@ -10,7 +10,8 @@ import { DarkModeContext } from "../context/DarkThemeProvider";
 import DarkModeSwitch from "./DarkModeSwitch";
 
 function App() {
-  const [stats, setStats] = useState([]);
+  const [stats2020, setStats2020] = useState([]);
+  const [stats2021, setStats2021] = useState([]);
   const [randomStat, setRandomStat] = useState({});
   const [savedStats, setSavedStats] = useState(
     Object.values(localStorage).map((object) => JSON.parse(object))
@@ -33,12 +34,16 @@ function App() {
           const data2020 = mapData(data[0].data);
           const data2021 = mapData(data[1].data);
           const teams = mapTeams(data[2].data);
-          let allData = [...data2020, ...data2021];
-          const statsWithTeams = allData.map((stat) => {
+          const statsWithTeams2020 = data2020.map((stat) => {
             const foundTeam = teams.find((team) => team.id === stat.opponent);
             return { ...stat, opponent: foundTeam.team };
           });
-          setStats(statsWithTeams);
+          const statsWithTeams2021 = data2021.map((stat) => {
+            const foundTeam = teams.find((team) => team.id === stat.opponent);
+            return { ...stat, opponent: foundTeam.team };
+          });
+          setStats2020(statsWithTeams2020);
+          setStats2021(statsWithTeams2021);
         })
         .catch((err) => setError(err.message));
     };
@@ -46,8 +51,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setRandomStat(stats[Math.floor(Math.random() * stats.length)]);
-  }, [stats]);
+    let allData = [...stats2020, ...stats2021];
+    setRandomStat(allData[Math.floor(Math.random() * allData.length)]);
+  }, [stats2020, stats2021]);
 
   const saveStat = () => {
     const foundStat = savedStats.indexOf(randomStat);
@@ -82,11 +88,13 @@ function App() {
       </header>
       <Route exact path="/">
         {error && <p>something went wrong!!</p>}
+        <Chart stats={stats2020} />
+        <Chart stats={stats2021} />
         {randomStat && !error ? (
           <RandomStat
             isSaved={isSaved}
             setIsSaved={setIsSaved}
-            stats={stats}
+            stats={[...stats2020, ...stats2021]}
             randomStat={randomStat}
             setRandomStat={setRandomStat}
             saveStat={saveStat}
@@ -95,7 +103,6 @@ function App() {
         ) : (
           <p>loading</p>
         )}
-        <Chart stats={stats} />
       </Route>
       <Route exact path="/saved">
         <SavedStats savedStats={sortedSavedStats} deleteStat={deleteStat} />

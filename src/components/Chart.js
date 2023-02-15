@@ -21,7 +21,15 @@ ChartJS.register(
   Legend
 );
 
-const Chart = ({ stats, selected }) => {
+const Chart = ({ stats, selected, sortTypeSelected }) => {
+  stats =
+    sortTypeSelected === "date"
+      ? stats.sort((a, b) => {
+          let dateA = new Date(a.date);
+          let dateB = new Date(b.date);
+          return dateA - dateB;
+        })
+      : stats.sort((a, b) => b[sortTypeSelected] - a[sortTypeSelected]);
   const options = {
     responsive: true,
     plugins: {
@@ -35,6 +43,7 @@ const Chart = ({ stats, selected }) => {
     },
   };
   const labels = stats.map((stat) => `${stat.date} vs ${stat.opponent}`);
+
   const data = {
     labels,
     datasets: [

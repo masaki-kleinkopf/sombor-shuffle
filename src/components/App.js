@@ -97,13 +97,25 @@ function App() {
       <Route exact path="/">
         {error && <p>something went wrong!!</p>}
         {selected === "20-21" && (
-          <Chart stats={stats2020} selected={selected} />
+          <Chart
+            sortTypeSelected={sortTypeSelected}
+            stats={stats2020}
+            selected={selected}
+          />
         )}
         {selected === "21-22" && (
-          <Chart stats={stats2021} selected={selected} />
+          <Chart
+            sortTypeSelected={sortTypeSelected}
+            stats={stats2021}
+            selected={selected}
+          />
         )}
         {selected === "21+22" && (
-          <Chart stats={[...stats2020, ...stats2021]} selected={selected} />
+          <Chart
+            sortTypeSelected={sortTypeSelected}
+            stats={[...stats2020, ...stats2021]}
+            selected={selected}
+          />
         )}
         {randomStat && selected === "random" && (
           <RandomStat

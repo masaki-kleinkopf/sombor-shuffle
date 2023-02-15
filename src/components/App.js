@@ -5,6 +5,7 @@ import RandomStat from "./RandomStat";
 import SavedStats from "./SavedStats";
 import Chart from "./Chart";
 import Select from "./Select";
+import SortSelect from "./SortSelect";
 import { mapData, mapTeams } from "../utils";
 import { Route } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkThemeProvider";
@@ -20,6 +21,7 @@ function App() {
   const [error, setError] = useState("");
   const [isSaved, setIsSaved] = useState(false);
   const [selected, setSelected] = useState("21-22");
+  const [sortTypeSelected, setSortTypeSelected] = useState("date");
 
   useEffect(() => {
     const getStats = () => {
@@ -88,6 +90,10 @@ function App() {
         <h1>stats from Nikola Jokic's MVP seasons</h1>
       </header>
       <Select selected={selected} setSelected={setSelected} />
+      <SortSelect
+        sortTypeSelected={sortTypeSelected}
+        setSortTypeSelected={setSortTypeSelected}
+      />
       <Route exact path="/">
         {error && <p>something went wrong!!</p>}
         {selected === "20-21" && (

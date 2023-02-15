@@ -53,8 +53,8 @@ const Chart = ({ stats, selected }) => {
       {
         label: "Assists",
         data: stats.map((stat) => stat.assists),
-        borderColor: "rgb(70, 30, 50))",
-        backgroundColor: "rgba(70, 30, 50, 0.5)",
+        borderColor: "rgb(255, 215, 0)",
+        backgroundColor: "rgba(255, 215, 0, 0.5)",
       },
     ],
   };

@@ -3,9 +3,9 @@
   width: 80%;
   display: flex;
   justify-content: center;
-  padding-bottom: 10em;
+  margin-bottom: -2em;
 }
 
 canvas {
-  height: 30em;
+  height: 27em;
 }

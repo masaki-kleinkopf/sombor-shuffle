@@ -31,6 +31,7 @@ const Chart = ({ stats, selected, sortTypeSelected }) => {
         })
       : stats.sort((a, b) => b[sortTypeSelected] - a[sortTypeSelected]);
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {

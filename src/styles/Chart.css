@@ -1,6 +1,11 @@
 .chart {
-  height: 80em;
-  width: 80em;
+  height: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
+  padding-bottom: 10em;
+}
+
+canvas {
+  height: 30em;
 }

@@ -84,7 +84,7 @@ function App() {
   const { darkMode } = useContext(DarkModeContext);
 
   return (
-    <main className={darkMode && "dark-mode"}>
+    <main className={darkMode ? "dark-mode" : "light-mode"}>
       <header>
         sombor <span className="shuffle">shuffle</span>
         <h1>stats from Nikola Jokic's MVP seasons</h1>

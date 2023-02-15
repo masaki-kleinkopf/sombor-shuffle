@@ -2,12 +2,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height:100vh;
-  width:100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 header {
@@ -16,48 +16,46 @@ header {
 }
 
 h1 {
-  font-size: .5em;
+  font-size: 0.5em;
 }
 
 h4 {
-  font-size: .4em;
+  font-size: 0.4em;
 }
 
 input {
-  margin-top:3em;
+  margin-top: 3em;
 }
 
-button { 
+button {
   background: none;
-	color:#0FB7FF;;
+  color: #0fb7ff;
   border: outset;
-	border:#0FB7FF;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  border: #0fb7ff;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
-button:hover { 
+button:hover {
   background: none;
-	color:rgb(177, 177, 14);
+  color: rgb(177, 177, 14);
   border: outset;
-	border:#0FB7FF;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  border: #0fb7ff;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .shuffle {
-  color:#0FB7FF;
+  color: #0fb7ff;
   /* text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000; */
 }
 
 .dark-mode {
-  color:white;
-  background-color:black;
+  color: white;
+  background-color: black;
 }
-
-

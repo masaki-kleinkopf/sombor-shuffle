@@ -110,7 +110,7 @@ function App() {
             selected={selected}
           />
         )}
-        {selected === "21+22" && (
+        {selected === "20-21+21-22" && (
           <Chart
             sortTypeSelected={sortTypeSelected}
             stats={[...stats2020, ...stats2021]}

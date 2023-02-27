@@ -38,14 +38,14 @@ function App() {
           const data2020 = mapData(data[0].data);
           const data2021 = mapData(data[1].data);
           const teams = mapTeams(data[2].data);
-          const statsWithTeams2020 = data2020.map((stat) => {
-            const foundTeam = teams.find((team) => team.id === stat.opponent);
-            return { ...stat, opponent: foundTeam.team };
-          });
-          const statsWithTeams2021 = data2021.map((stat) => {
-            const foundTeam = teams.find((team) => team.id === stat.opponent);
-            return { ...stat, opponent: foundTeam.team };
-          });
+          const attachTeams = (seasonData) => {
+            return seasonData.map((stat) => {
+              const foundTeam = teams.find((team) => team.id === stat.opponent);
+              return { ...stat, opponent: foundTeam.team };
+            });
+          };
+          const statsWithTeams2020 = attachTeams(data2020);
+          const statsWithTeams2021 = attachTeams(data2021);
           setStats2020(statsWithTeams2020);
           setStats2021(statsWithTeams2021);
         })

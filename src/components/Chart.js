@@ -33,6 +33,10 @@ const Chart = ({ stats, selected, sortTypeSelected }) => {
   const options = {
     maintainAspectRatio: false,
     responsive: true,
+    interaction: {
+      mode: "index",
+      intersect: false,
+    },
     plugins: {
       legend: {
         position: "top",
@@ -40,6 +44,12 @@ const Chart = ({ stats, selected, sortTypeSelected }) => {
       title: {
         display: true,
         text: selected,
+        title: {
+          display: true,
+          text: (ctx) =>
+            "Tooltip position mode: " +
+            ctx.chart.options.plugins.tooltip.position,
+        },
       },
     },
   };

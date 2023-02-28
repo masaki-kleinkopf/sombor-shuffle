@@ -85,6 +85,7 @@ function App() {
 
   return (
     <main className={darkMode ? "dark-mode" : "light-mode"}>
+      <DarkModeSwitch />
       <header>
         sombor <span className="shuffle">shuffle</span>
         <h1>stats from Nikola Jokic's MVP seasons</h1>
@@ -132,7 +133,6 @@ function App() {
       <Route exact path="/saved">
         <SavedStats savedStats={sortedSavedStats} deleteStat={deleteStat} />
       </Route>
-      <DarkModeSwitch />
     </main>
   );
 }

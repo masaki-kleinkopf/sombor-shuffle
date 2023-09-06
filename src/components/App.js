@@ -24,32 +24,36 @@ function App() {
   const [sortTypeSelected, setSortTypeSelected] = useState("date");
 
   useEffect(() => {
-    const getStats = () => {
-      Promise.all([
-        getData(
-          "https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=246&per_page=82"
-        ),
-        getData(
-          "https://www.balldontlie.io/api/v1/stats?seasons[]=2021&player_ids[]=246&per_page=82"
-        ),
-        getData("https://www.balldontlie.io/api/v1/teams"),
-      ])
-        .then((data) => {
-          const data2020 = mapData(data[0].data);
-          const data2021 = mapData(data[1].data);
-          const teams = mapTeams(data[2].data);
-          const attachTeams = (seasonData) => {
-            return seasonData.map((stat) => {
-              const foundTeam = teams.find((team) => team.id === stat.opponent);
-              return { ...stat, opponent: foundTeam.team };
-            });
-          };
-          const statsWithTeams2020 = attachTeams(data2020);
-          const statsWithTeams2021 = attachTeams(data2021);
-          setStats2020(statsWithTeams2020);
-          setStats2021(statsWithTeams2021);
-        })
-        .catch((err) => setError(err.message));
+    const getStats = async () => {
+      try {
+        const allData = await Promise.all([
+          getData(
+            "https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=246&per_page=82"
+          ),
+          getData(
+            "https://www.balldontlie.io/api/v1/stats?seasons[]=2021&player_ids[]=246&per_page=82"
+          ),
+          getData("https://www.balldontlie.io/api/v1/teams"),
+        ])
+          // .then((data) => {
+            const data2020 = mapData(allData[0].data);
+            const data2021 = mapData(allData[1].data);
+            const teams = mapTeams(allData[2].data);
+            const attachTeams = (seasonData) => {
+              return seasonData.map((stat) => {
+                const foundTeam = teams.find((team) => team.id === stat.opponent);
+                return { ...stat, opponent: foundTeam.team };
+              });
+            };
+            const statsWithTeams2020 = attachTeams(data2020);
+            const statsWithTeams2021 = attachTeams(data2021);
+            setStats2020(statsWithTeams2020);
+            setStats2021(statsWithTeams2021);
+      } catch (err) {
+        setError(err.message)
+      }
+        // })
+        // .catch((err) => setError(err.message));
     };
     getStats();
   }, []);
